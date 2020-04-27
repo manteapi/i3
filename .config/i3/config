@@ -92,12 +92,19 @@ bindsym $mod+q focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
+# set workspace variables
+set $WS1 1:Starship
+set $WS2 2:Firefox
+set $WS3 3:Notion
+set $WS4 4:Mattermost
+set $WS5 5:Thunderbird
+
 # switch to workspace
-bindsym $mod+ampersand workspace 1
-bindsym $mod+eacute workspace 2
-bindsym $mod+quotedbl workspace 3
-bindsym $mod+apostrophe workspace 4
-bindsym $mod+parenleft workspace 5
+bindsym $mod+ampersand workspace $WS1
+bindsym $mod+eacute workspace $WS2
+bindsym $mod+quotedbl workspace $WS3
+bindsym $mod+apostrophe workspace $WS4
+bindsym $mod+parenleft workspace $WS5
 bindsym $mod+minus workspace 6
 bindsym $mod+egrave workspace 7
 bindsym $mod+underscore workspace 8
@@ -105,11 +112,11 @@ bindsym $mod+ccedilla workspace 9
 bindsym $mod+agrave workspace 10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+eacute move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+1 move container to workspace $WS1
+bindsym $mod+Shift+eacute move container to workspace $WS2
+bindsym $mod+Shift+3 move container to workspace $WS3
+bindsym $mod+Shift+4 move container to workspace $WS4
+bindsym $mod+Shift+5 move container to workspace $WS5
 bindsym $mod+Shift+6 move container to workspace 6
 bindsym $mod+Shift+egrave move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
@@ -117,17 +124,22 @@ bindsym $mod+Shift+ccedilla move container to workspace 9
 bindsym $mod+Shift+agrave move container to workspace 10
 
 # assign window to workspace based on their class
-assign [class="gnome-terminal"] 1
-assign [class="Firefox"] 2
-assign [class="lotion-binary"] 3
-for_assign [class="mattermost"] move to workspace 4
-for_assign [class="protonmail-bridge"] move to workspace 5
-assign [class="Thunderbird"] 5
+assign [class="gnome-terminal"] $WS1
+assign [class="Firefox"] $WS2
+assign [class="lotion-binary"] $WS3
+assign [class="Mattermost"] $WS4
+assign [class="Thunderbird"] $WS5
+assign [class="ProtonMail Bridge"] $WS5
 
-exec --no-startup-id protonmail-bridge
-exec --no-startup-id thunderbird
+for_window [class="CircleApp"] floating enable
+for_window [class="AnatoRun"] floating enable
+for_window [class="runSofa2"] floating enable
+
 exec --no-startup-id gnome-terminal
 exec --no-startup-id firefox
+exec --no-startup-id notion
+exec --no-startup-id thunderbird
+exec --no-startup-id protonmail-bridge
 exec --no-startup-id mattermost
 
 # reload the configuration file
@@ -166,5 +178,11 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
+        position top
+        strip_workspace_numbers yes
         status_command i3status
 }
+
+# volume control
+bindsym $mod+F11 exec amixer sset Master 5%-
+bindsym $mod+F12 exec amixer sset Master 5%+
