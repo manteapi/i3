@@ -120,14 +120,15 @@ bindsym $mod+Shift+agrave move container to workspace 10
 assign [class="gnome-terminal"] 1
 assign [class="Firefox"] 2
 assign [class="lotion-binary"] 3
-assign [class="mattermost"] 4
+for_assign [class="mattermost"] move to workspace 4
+for_assign [class="protonmail-bridge"] move to workspace 5
 assign [class="Thunderbird"] 5
-assign [class="protonmail-bridge"] 5
 
 exec --no-startup-id protonmail-bridge
 exec --no-startup-id thunderbird
 exec --no-startup-id gnome-terminal
 exec --no-startup-id firefox
+exec --no-startup-id mattermost
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
