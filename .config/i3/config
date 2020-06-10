@@ -160,7 +160,7 @@ for_window [class="CircleApp"] floating enable
 for_window [class="AnatoRun"] floating enable
 for_window [class="runSofa2"] floating enable
 
-exec --no-startup-id protonmail-bridge --no-window
+exec --no-startup-id protonmail-bridge
 exec --no-startup-id alacritty 
 exec --no-startup-id flameshot
 exec --no-startup-id firefox
