@@ -135,7 +135,6 @@ assign [class="Firefox"] $WS2
 assign [class="lotion-binary"] $WS3
 assign [class="Mattermost"] $WS4
 assign [class="Thunderbird"] $WS5
-assign [class="ProtonMail Bridge"] $WS5
 assign [class="Station"] $WS6
 assign [class="Nautilus"] $WS7
 
@@ -147,7 +146,6 @@ exec --no-startup-id gnome-terminal
 exec --no-startup-id firefox
 exec --no-startup-id notion
 exec --no-startup-id thunderbird
-exec --no-startup-id protonmail-bridge
 exec --no-startup-id mattermost
 exec --no-startup-id station
 
