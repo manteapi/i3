@@ -113,8 +113,8 @@ bindsym $mod+q focus parent
 #bindsym $mod+d focus child
 
 # screenshot
-bindsym Control+Shift+Print exec gnome-screenshot --interactive
-bindsym Control+Print exec gnome-screenshot
+bindsym Control+Shift+p exec flameshot gui
+bindsym Control+p exec flameshot full -c
 
 # set workspace variables
 set $WS1 1:Starship
