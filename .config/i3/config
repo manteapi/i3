@@ -124,6 +124,7 @@ set $WS4 4:Mattermost
 set $WS5 5:Station
 set $WS6 6:VsCode
 set $WS7 7:QtCreator
+set $WS8 8:GitKraken
 
 # switch to workspace
 bindsym $mod+1 workspace $WS1
@@ -133,7 +134,7 @@ bindsym $mod+4 workspace $WS4
 bindsym $mod+5 workspace $WS5
 bindsym $mod+6 workspace $WS6
 bindsym $mod+7 workspace $WS7
-bindsym $mod+8 workspace 8
+bindsym $mod+8 workspace $WS8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
@@ -145,7 +146,7 @@ bindsym $mod+Shift+4 move container to workspace $WS4
 bindsym $mod+Shift+5 move container to workspace $WS5
 bindsym $mod+Shift+6 move container to workspace $WS6
 bindsym $mod+Shift+7 move container to workspace $WS7
-bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+8 move container to workspace $WS8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
@@ -157,6 +158,7 @@ assign [class="Mattermost"] $WS4
 assign [class="Station"] $WS5
 assign [class="Code"] $WS6
 assign [class="QtCreator"] $WS7
+assign [class="GitKraken"] $WS8
 
 for_window [class="CircleApp"] floating enable
 for_window [class="Lucy"] floating enable
@@ -173,6 +175,7 @@ exec --no-startup-id station
 exec --no-startup-id mattermost-desktop
 exec --no-startup-id code
 exec --no-startup-id qtcreator
+exec --no-startup-id gitkraken
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
