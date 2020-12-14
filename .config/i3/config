@@ -178,6 +178,7 @@ for_window [class="AnatoQtExample"] floating enable
 for_window [class="AnatoRun"] floating enable
 for_window [class="runSofa2"] floating enable
 for_window [class="Orthodontia_sofaqt_qmltest"] floating enable
+for_window [class="SofaQt_qmltest"] floating enable
 
 exec --no-startup-id alacritty 
 exec --no-startup-id flameshot
