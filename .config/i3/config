@@ -98,7 +98,7 @@ bindsym Control+Print exec gnome-screenshot
 
 # set workspace variables
 set $WS1 1:Starship
-set $WS2 2:Firefox
+set $WS2 2:Web
 set $WS3 3:Fichiers
 
 # switch to workspace
@@ -127,7 +127,7 @@ bindsym $mod+Shift+agrave move container to workspace 10
 
 # assign window to workspace based on their class
 assign [class="gnome-terminal"] $WS1
-assign [class="Firefox"] $WS2
+assign [class="Brave"] $WS2
 assign [class="Nautilus"] $WS3
 
 for_window [class="CircleApp"] floating enable
@@ -135,7 +135,7 @@ for_window [class="AnatoRun"] floating enable
 for_window [class="runSofa2"] floating enable
 
 exec --no-startup-id gnome-terminal
-exec --no-startup-id firefox
+exec --no-startup-id brave-browser
 exec --no-startup-id notion
 exec --no-startup-id thunderbird
 exec --no-startup-id mattermost
