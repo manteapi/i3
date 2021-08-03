@@ -121,21 +121,11 @@ set $WS1 1:Starship
 set $WS2 2:VsCode
 set $WS3 3:QtCreator
 set $WS4 4:GitKraken
-set $WS5 5:Firefox
+set $WS5 5:Web
 set $WS6 6:Mattermost
 set $WS7 7:Discord
 set $WS8 8:Notion
 set $WS9 9:Station
-
-assign [class="alacritty"] $WS1
-assign [class="Code"] $WS2
-assign [class="QtCreator"] $WS3
-assign [class="GitKraken"] $WS4
-assign [class="firefox"] $WS5
-assign [class="Mattermost"] $WS6
-assign [class="discord"] $WS7
-assign [class="Notion"] $WS8
-assign [class="Station"] $WS9
 
 # switch to workspace
 bindsym $mod+1 workspace $WS1
@@ -163,12 +153,13 @@ bindsym $mod+Shift+0 move container to workspace 10
 
 # assign window to workspace based on their class
 assign [class="alacritty"] $WS1
-assign [class="code-oss"] $WS2
+assign [class="_qmltest"] $WS2
+assign [class="Code"] $WS2
 assign [class="QtCreator"] $WS3
 assign [class="GitKraken"] $WS4
-assign [class="firefox"] $WS5
+assign [class="Google-chrome"] $WS5
 assign [class="Mattermost"] $WS6
-assign [class="Discord"] $WS7
+assign [class="discord"] $WS7
 assign [class="Notion"] $WS8
 assign [class="Station"] $WS9
 
@@ -177,12 +168,12 @@ for_window [class="Lucy"] floating enable
 for_window [class="AnatoQtExample"] floating enable
 for_window [class="AnatoRun"] floating enable
 for_window [class="runSofa2"] floating enable
-for_window [class="Orthodontia_sofaqt_qmltest"] floating enable
-for_window [class="SofaQt_qmltest"] floating enable
+for_window [class="_qmltest"] floating enable
 
 exec --no-startup-id alacritty 
 exec --no-startup-id flameshot
-exec --no-startup-id firefox
+exec --no-startup-id google-chrome-stable
+exec --no-startup-id google-chrome-stable --profile-directory=Default --app-id=crx_mdpkiolbdkhdjpekfbkbmhigcaggjagi
 exec --no-startup-id notion-app
 exec --no-startup-id station
 exec --no-startup-id mattermost-desktop
