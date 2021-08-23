@@ -21,6 +21,7 @@ font pango:DejaVu Sans Mono 8
 
 # flameshot
 exec --no-startup-id flameshot
+exec --no-startup-id notion-app
 
 # wallpaper handling using feh
 exec --no-startup-id feh --bg-fill --randomize ~/Pictures/wallpapers
