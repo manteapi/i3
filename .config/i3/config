@@ -30,6 +30,8 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
+exec --no-startup-id notion-app
+
 # Shortcut to lock the screen
 bindsym Control+mod1+l exec i3lock -i ~/Pictures/lock.png
 
@@ -160,7 +162,7 @@ assign [class="GitKraken"] $WS4
 assign [class="Google-chrome"] $WS5
 assign [class="Mattermost"] $WS6
 assign [class="discord"] $WS7
-assign [class="Notion"] $WS8
+assign [class="notion-app"] $WS8
 assign [class="Station"] $WS9
 
 for_window [class="CircleApp"] floating enable
