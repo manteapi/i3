@@ -155,7 +155,6 @@ bindsym $mod+Shift+0 move container to workspace 10
 
 # assign window to workspace based on their class
 assign [class="alacritty"] $WS1
-assign [class="_qmltest"] $WS2
 assign [class="Code"] $WS2
 assign [class="QtCreator"] $WS3
 assign [class="GitKraken"] $WS4
