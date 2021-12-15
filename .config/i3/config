@@ -24,7 +24,6 @@ exec --no-startup-id flameshot
 assign[class="GitKraken"] $ws7
 assign[class="discord"] $ws8
 assign[class="Mattermost"] $ws9
-exec --no-startup-id notion-app
 assign[class="notion-app"] $ws10
 
 # wallpaper handling using feh
