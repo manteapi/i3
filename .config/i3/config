@@ -42,10 +42,6 @@ bindsym Control+mod1+l exec i3lock -i ~/Pictures/lock.png
 
 # flameshot
 exec --no-startup-id flameshot
-assign[class="GitKraken"] $ws7
-assign[class="discord"] $ws8
-assign[class="Mattermost"] $ws9
-assign[class="notion-app"] $ws10
 
 # wallpaper handling using feh
 exec --no-startup-id feh --bg-fill --randomize ~/Pictures/wallpapers
@@ -131,12 +127,10 @@ bindsym Control+Print exec gnome-screenshot
 
 # set workspace variables
 set $WS1 1:Starship
-set $WS2 2:Firefox
-set $WS3 3:Notion
-set $WS4 4:Mattermost
-set $WS5 5:Thunderbird
-set $WS6 6:Station
-set $WS7 7:Fichiers
+set $WS2 2:Web
+set $WS3 3:Mattermost
+set $WS4 4:Gitkraken
+set $WS5 5:Discord
 
 # switch to workspace
 bindsym $mod+ampersand workspace $WS1
@@ -164,25 +158,18 @@ bindsym $mod+Shift+agrave move container to workspace 10
 
 # assign window to workspace based on their class
 assign [class="gnome-terminal"] $WS1
-assign [class="Firefox"] $WS2
-assign [class="lotion-binary"] $WS3
-assign [class="Mattermost"] $WS4
-assign [class="Thunderbird"] $WS5
-assign [class="ProtonMail Bridge"] $WS5
-assign [class="Station"] $WS6
-assign [class="Nautilus"] $WS7
+assign [class="google-chrome"] $WS2
+assign [class="Mattermost"] $WS3
+assign[class="GitKraken"] $WS4
+assign[class="discord"] $WS5
 
 for_window [class="CircleApp"] floating enable
 for_window [class="AnatoRun"] floating enable
 for_window [class="runSofa2"] floating enable
 
 exec --no-startup-id gnome-terminal
-exec --no-startup-id firefox
-exec --no-startup-id notion
-exec --no-startup-id thunderbird
-exec --no-startup-id protonmail-bridge
+exec --no-startup-id google-chrome-stable
 exec --no-startup-id mattermost
-exec --no-startup-id station
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
