@@ -158,7 +158,7 @@ bindsym $mod+Shift+agrave move container to workspace 10
 
 # assign window to workspace based on their class
 assign [class="gnome-terminal"] $WS1
-assign [class="google-chrome"] $WS2
+assign [class="Google-chrome"] $WS2
 assign [class="Mattermost"] $WS3
 assign[class="GitKraken"] $WS4
 assign[class="discord"] $WS5
