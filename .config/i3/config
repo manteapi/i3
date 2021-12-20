@@ -163,6 +163,7 @@ assign [class="Mattermost"] $WS3
 assign[class="GitKraken"] $WS4
 assign[class="discord"] $WS5
 
+for_window [class="_qmltest_"] floating enable
 for_window [class="CircleApp"] floating enable
 for_window [class="AnatoRun"] floating enable
 for_window [class="runSofa2"] floating enable
