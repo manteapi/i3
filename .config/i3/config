@@ -126,11 +126,11 @@ bindsym Control+Shift+Print exec gnome-screenshot --interactive
 bindsym Control+Print exec gnome-screenshot
 
 # set workspace variables
-set $WS1 1:Starship
-set $WS2 2:Web
-set $WS3 3:Mattermost
-set $WS4 4:Gitkraken
-set $WS5 5:Discord
+set $WS1 1:1:Starship
+set $WS2 2:2:Web
+set $WS3 3:3:Mattermost
+set $WS4 4:4:Gitkraken
+set $WS5 5:5:Discord
 
 # switch to workspace
 bindsym $mod+ampersand workspace $WS1
