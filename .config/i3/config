@@ -172,6 +172,7 @@ bar {
         font pango:monospace Monospace 9
         position top
         status_command i3status
+        tray_output none
 }
 
 # windows assignments
