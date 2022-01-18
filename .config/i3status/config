@@ -1,64 +1,78 @@
-# i3status configuration file.
-# see "man i3status" for documentation.
-
-# It is important that this file is edited as UTF-8.
-# The following line should contain a sharp s:
-# ß
-# If the above line is not correctly displayed, fix your editor first!
-
 general {
+        output_format = "i3bar"
         colors = true
+        markup = pango
         interval = 5
+        color_good = '#2f343f'
+		color_degraded = '#ebcb8b'
+		color_bad = '#ba5e57'
 }
 
-order += "ipv6"
+order += "load"
+order += "cpu_temperature 0"
+order += "disk /"
+order += "disk /home"
 order += "wireless _first_"
 order += "ethernet _first_"
-order += "battery all"
-order += "disk /"
-order += "load"
 order += "memory"
-order += "tztime local"
 order += "volume master"
+order += "battery all"
+order += "tztime local"
 
-ipv6 {
-    format_down = ""
+cpu_temperature 0 {
+        format = "<span background='#bf616a'> %degrees °C </span>"
+        path = "/sys/class/thermal/thermal_zone0/temp"
 }
 
 wireless _first_ {
-        format_up = "W: (%quality at %essid) %ip"
-        format_down = "W: down"
+        format_up = "<span background='#b48ead'> %essid </span>"
+        format_down = "<span background='#b48ead'> Disconnected </span>"
 }
 
 ethernet _first_ {
-        format_up = "E: %ip (%speed)"
-        format_down = "E: down"
-}
-
-battery all {
-        format = "%status %percentage %remaining"
-        format_down = ""
-}
-
-disk "/" {
-        format = "%avail"
-}
-
-load {
-        format = "%1min"
+        format_up = "<span background='#88c0d0'> %ip </span>"
+        format_down = "<span background='#88c0d0'> Disconnected </span>"
 }
 
 memory {
-        format = "%used | %available"
-        threshold_degraded = "1G"
-        format_degraded = "MEMORY < %available"
+		format = "<span background='#b19cd9'> %available </span>"
+        threshold_degraded = "10%"
+        format_degraded = "MEMORY: %fre"
+}
+
+battery all {
+	    last_full_capacity = true
+        format = "<span background='#a3be8c'> %status %percentage </span>"
+        format_down = ""
+        status_chr = "Charging"
+        status_bat = "Battery"
+        status_unk = "Unknown"
+        status_full = "Charged"
+        path = "/sys/class/power_supply/BAT%d/uevent"
+        low_threshold = 10
+}
+
+
+disk "/" {
+        format = "<span background='#fec7cd'> %free Free </span>"
+}
+
+disk "/home" {
+        format = "<span background='#a1d569'> %free Free </span>"
+}
+
+load {
+        format = "<span background='#f59335'> %5min Load </span>"
 }
 
 tztime local {
-        format = "%Y-%m-%d %H:%M:%S"
+		format = "<span background='#81a1c1'> %a %-d %b %H:%M</span>"
 }
 
 volume master {
-        format = "♪: %volume"
-        format_muted = "♪: muted (%volume)"
+        format = "<span background='#ebcb8b'> %volume </span>"
+        format_muted = "<span background='#ebcb8b'> Muted </span>"
+        device = "default"
+        mixer = "Master"
+        mixer_idx = 0
 }

@@ -1,31 +1,36 @@
-# Please see https://i3wm.org/docs/userguide.html for a complete reference!
-
 # set lead key
 set $mod Mod4
 
 # set workspace variables
-set $WS1 1:1:Starship
-set $WS2 2:2:Web
-set $WS3 3:3:Mattermost
-set $WS4 4:4:Gitkraken
-set $WS5 5:5:Discord
+set $WS1 1:Starship
+set $WS2 2:Web
+set $WS3 3:Mattermost
+set $WS4 4:Gitkraken
+set $WS5 5:Discord
 
-# Font for window titles. Will also be used by the bar unless a different font
-# is used in the bar {} block below.
+# set font
 font pango:monospace Mono 8
 
-# Shortcut to lock the screen
+# use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# shortcut to lock the screen
 bindsym Control+mod1+l exec i3lock -i ~/.config/i3/lockscreen/westworld-wallpaper.png
 
-# Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
+
+# use pactl to adjust volume in PulseAudio.
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
-# Use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier $mod
+# volume control TODO: remove ?
+bindsym $mod+F11 exec amixer sset Master 5%-
+bindsym $mod+F12 exec amixer sset Master 5%+
+
+# toggle notifications
+bindsym $mod+Shift+m exec dunstctl set-paused toggle
 
 # start a terminal
 bindsym $mod+Return exec alacritty
@@ -35,6 +40,7 @@ bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec --no-startup-id dmenu_run
+bindsym $mod+Shift+d exec rofi -lines 12 -padding 18 -width 60 -location 0 -show drun -sidebar-mode -columns 3 -font 'pango:monospace Monospace 8'
 
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
@@ -93,8 +99,8 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # screenshot
-bindsym Control+Shift+Print exec gnome-screenshot --interactive
-bindsym Control+Print exec gnome-screenshot
+bindsym Control+Shift+Print exec flameshot full -c
+bindsym Control+Print exec flameshot gui
 
 # switch to workspace
 bindsym $mod+ampersand workspace $WS1
@@ -129,23 +135,15 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
-
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
-
+        bindsym j resize shrink width 5 px or 5 ppt
+        bindsym k resize grow height 5 px or 5 ppt
+        bindsym l resize shrink height 5 px or 5 ppt
+        bindsym semicolon resize grow width 5 px or 5 ppt
         # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
-
+        bindsym Left resize shrink width 5 px or 5 ppt
+        bindsym Down resize grow height 5 px or 5 ppt
+        bindsym Up resize shrink height 5 px or 5 ppt
+        bindsym Right resize grow width 5 px or 5 ppt
         # back to normal: Enter or Escape or $mod+r
         bindsym Return mode "default"
         bindsym Escape mode "default"
@@ -157,18 +155,21 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        font pango:DejaVu Sans 9
+        colors {
+        background #2f343f
+        statusline #2f343f
+        separator #4b5262
+
+        # colour of border, background, and text
+        focused_workspace       #2f343f #bf616a #d8dee8
+        active_workspace        #2f343f #2f343f #d8dee8
+        inactive_workspace      #2f343f #2f343f #d8dee8
+        urgent_workspacei       #2f343f #ebcb8b #2f343f
+        }
+        font pango:monospace Monospace 9
         position top
-        strip_workspace_numbers yes
         status_command i3status
 }
-
-# volume control
-bindsym $mod+F11 exec amixer sset Master 5%-
-bindsym $mod+F12 exec amixer sset Master 5%+
-
-# toggle notifications
-bindsym $mod+Shift+m exec dunstctl set-paused toggle
 
 # windows assignments
 
@@ -184,7 +185,8 @@ for_window [class="CircleApp"] floating enable
 for_window [class="AnatoRun"] floating enable
 for_window [class="runSofa2"] floating enable
 
-# startup programs
+
+# autostart
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
