@@ -37,7 +37,7 @@ ethernet _first_ {
 memory {
 		format = "<span background='#b19cd9'>  %available </span>"
         threshold_degraded = "10%"
-        format_degraded = "MEMORY: %fre"
+        format_degraded = "MEMORY: %free"
 }
 
 battery all {
