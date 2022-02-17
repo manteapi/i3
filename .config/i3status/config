@@ -71,7 +71,8 @@ tztime local {
 
 volume master {
         format = "<span background='#ebcb8b'>  %volume </span>"
-        format_muted = "<span background='#ebcb8b'>  </span>"
+        format_muted = "<span background='#ebcb8b'>  %volume </span>"
+        format_muted = " "
         device = "default"
         mixer = "Master"
         mixer_idx = 0
