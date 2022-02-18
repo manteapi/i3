@@ -108,6 +108,8 @@ bindsym $mod+a focus parent
 # screenshot
 bindsym Control+Shift+Print exec flameshot full -c
 bindsym Control+Print exec flameshot gui
+bindsym $mod+Print exec peek
+bindsym $mod+Shift+Print exec peek --toggle
 
 # switch to workspace
 bindsym $mod+ampersand workspace $WS1
