@@ -34,7 +34,7 @@ bindsym $mod+F11 exec --no-startup-id pactl set-sink-mute 0 toggle && pactl set-
 bindsym $mod+F12 exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
 # toggle notifications
-bindsym $mod+Shift+m exec dunstctl set-paused toggle
+bindsym $mod+Shift+m exec dunstctl set-paused toggle && status=$(exec dunstctl is-paused) && dunstify "Notifications toggled ? $status"
 
 # start a terminal
 bindsym $mod+Return exec alacritty
