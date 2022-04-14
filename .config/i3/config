@@ -185,7 +185,7 @@ bar {
 
 # assign window to workspace based on their class
 assign [class="gnome-terminal"] $WS1
-assign [class="Google-chrome"] $WS2
+assign [class="firefox"] $WS2
 assign [class="Mattermost"] $WS3
 assign[class="GitKraken"] $WS4
 assign[class="discord"] $WS5
@@ -213,6 +213,6 @@ exec --no-startup-id flameshot
 # wallpaper handling using feh
 exec --no-startup-id feh --bg-fill --randomize ~/.config/i3/wallpapers
 exec --no-startup-id gnome-terminal
-exec --no-startup-id google-chrome-stable
+exec --no-startup-id firefox
 exec --no-startup-id mattermost
 exec --no-startup-id udiskie
