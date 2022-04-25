@@ -6,7 +6,7 @@ set $WS1 1:Starship
 set $WS2 2:Web
 set $WS3 3:Mattermost
 set $WS4 4:Gitkraken
-set $WS5 5:Signal
+set $WS5 5:Chat
 set $WS6 6
 set $WS7 7
 set $WS8 8
@@ -188,7 +188,7 @@ assign [class="gnome-terminal"] $WS1
 assign [class="firefox"] $WS2
 assign [class="Mattermost"] $WS3
 assign[class="GitKraken"] $WS4
-assign[class="Signal"] $WS5
+assign[class="scrcpy"] $WS5
 
 for_window [class="bluff"] floating enable
 for_window [class="SofaQt_qmltest"] floating enable
@@ -214,6 +214,6 @@ exec --no-startup-id flameshot
 exec --no-startup-id feh --bg-fill --randomize ~/.config/i3/wallpapers
 exec --no-startup-id gnome-terminal
 exec --no-startup-id firefox
-exec --no-startup-id signal-desktop
+exec --no-startup-id scrcpy
 exec --no-startup-id mattermost
 exec --no-startup-id udiskie
