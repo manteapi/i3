@@ -189,6 +189,7 @@ assign [class="firefox"] $WS2
 assign [class="Mattermost"] $WS3
 assign[class="GitKraken"] $WS4
 assign[class="scrcpy"] $WS5
+assign[class="discord"] $WS5
 
 for_window [class="bluff"] floating enable
 for_window [class="SofaQt_qmltest"] floating enable
@@ -215,5 +216,6 @@ exec --no-startup-id feh --bg-fill --randomize ~/.config/i3/wallpapers
 exec --no-startup-id gnome-terminal
 exec --no-startup-id firefox
 exec --no-startup-id scrcpy
+exec --no-startup-id discord
 exec --no-startup-id mattermost
 exec --no-startup-id udiskie
