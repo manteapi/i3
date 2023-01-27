@@ -5,16 +5,20 @@ set $mod Mod4
 # Workspace
 # ---------
 
-set $WS1 1:Starship
-set $WS2 2:Web
-set $WS3 3:Mattermost
-set $WS4 4:Gitkraken
-set $WS5 5:Whatsapp
-set $WS6 6:Signal
-set $WS7 7:Discord
-set $WS8 8
-set $WS9 9
-set $WS10 10
+# Left hand
+set $WCode 1:Starship
+set $WWeb 2:Web
+set $WTeamChat 3:Mattermost
+set $WGit 4:Gitkraken
+
+# Right hand
+set $WPersoChat3 8:Discord
+set $WPersoChat2 9:Signal
+set $WPersoChat1 10:Whatsapp
+
+set $WBlank1 5
+set $WBlank2 6
+set $WBlank3 7
 
 # running custom script for monitor management
 # bindsym Control+mod1+j exec --no-startup-id sh ~/.config/i3/scripts/open_laptop_lid.sh
@@ -120,28 +124,28 @@ bindsym $mod+Print exec peek
 bindsym $mod+Shift+Print exec peek --toggle
 
 # switch to workspace
-bindsym $mod+ampersand workspace $WS1
-bindsym $mod+eacute workspace $WS2
-bindsym $mod+quotedbl workspace $WS3
-bindsym $mod+apostrophe workspace $WS4
-bindsym $mod+parenleft workspace $WS5
-bindsym $mod+minus workspace $WS6
-bindsym $mod+egrave workspace $WS7
-bindsym $mod+underscore workspace $WS8
-bindsym $mod+ccedilla workspace $WS9
-bindsym $mod+agrave workspace $WS10
+bindsym $mod+ampersand workspace $WCode
+bindsym $mod+eacute workspace $WWeb
+bindsym $mod+quotedbl workspace $WTeamChat
+bindsym $mod+apostrophe workspace $WGit
+bindsym $mod+parenleft workspace $WBlank1
+bindsym $mod+minus workspace $WBlank2
+bindsym $mod+egrave workspace $WBlank3
+bindsym $mod+underscore workspace $WPersoChat3
+bindsym $mod+ccedilla workspace $WPersoChat2
+bindsym $mod+agrave workspace $WPersoChat1
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace $WS1
-bindsym $mod+Shift+eacute move container to workspace $WS2
-bindsym $mod+Shift+3 move container to workspace $WS3
-bindsym $mod+Shift+4 move container to workspace $WS4
-bindsym $mod+Shift+5 move container to workspace $WS5
-bindsym $mod+Shift+6 move container to workspace $WS6
-bindsym $mod+Shift+egrave move container to workspace $WS7
-bindsym $mod+Shift+8 move container to workspace $WS8
-bindsym $mod+Shift+ccedilla move container to workspace $WS9
-bindsym $mod+Shift+agrave move container to workspace $WS10
+bindsym $mod+Shift+1 move container to workspace $WCode
+bindsym $mod+Shift+eacute move container to workspace $WWeb
+bindsym $mod+Shift+3 move container to workspace $WTeamChat
+bindsym $mod+Shift+4 move container to workspace $WGit
+bindsym $mod+Shift+5 move container to workspace $WBlank1
+bindsym $mod+Shift+6 move container to workspace $WBlank2
+bindsym $mod+Shift+egrave move container to workspace $WBlank3
+bindsym $mod+Shift+8 move container to workspace $WPersoChat3
+bindsym $mod+Shift+ccedilla move container to workspace $WPersoChat2
+bindsym $mod+Shift+agrave move container to workspace $WPersoChat1
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -194,13 +198,13 @@ bar {
 # ---------
 
 # assign window to workspace based on their class
-assign [class="gnome-terminal"] $WS1
-assign [class="firefox"] $WS2
-assign [class="Mattermost"] $WS3
-assign [class="GitKraken"] $WS4
-assign [class="Whatsapp-for-linux"] $WS5
-assign [class="Signal"] $WS6
-assign [class="discord"] $WS7
+assign [class="firefox"] $WWeb
+assign [class="Mattermost"] $WTeamChat
+assign [class="GitKraken"] $WGit
+assign [class="Whatsapp-for-linux"] $WPersoChat1
+assign [class="Signal"] $WPersoChat2
+assign [class="discord"] $WPersoChat3
+assign [class="_qmltest"] $WTest
 
 for_window [class="bluff"] floating enable
 for_window [class="SofaQt_qmltest"] floating enable
