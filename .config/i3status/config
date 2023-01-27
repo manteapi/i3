@@ -66,7 +66,8 @@ load {
 }
 
 tztime local {
-		format = "<span background='#81a1c1'>  %a %-d %b %H:%M</span>"
+        format = "<span background='#81a1c1' color='#ffffff'>%time</span>"
+        format_time = " ◔ %H:%M:%S |  %a. %d.%m.%Y "
 }
 
 volume master {
