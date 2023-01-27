@@ -13,6 +13,10 @@ set $WS8 8
 set $WS9 9
 set $WS10 10
 
+# running custom script for monitor management
+# bindsym Control+mod1+j exec --no-startup-id sh ~/.config/i3/scripts/open_laptop_lid.sh
+bindsym Control+mod1+k exec --no-startup-id sh ~/.config/i3/scripts/close_laptop_lid.sh
+
 # set font
 font pango:monospace Mono 8
 
@@ -37,7 +41,8 @@ bindsym $mod+F12 exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ tog
 bindsym $mod+Shift+m exec dunstctl set-paused toggle && status=$(exec dunstctl is-paused) && dunstify "Notifications toggled ? $status"
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec flatpak run org.wezfurlong.wezterm
+bindsym $mod+Shift+Return exec flatpak run org.wezfurlong.wezterm start -- tmux
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -187,9 +192,8 @@ bar {
 assign [class="gnome-terminal"] $WS1
 assign [class="firefox"] $WS2
 assign [class="Mattermost"] $WS3
-assign[class="GitKraken"] $WS4
-assign[class="scrcpy"] $WS5
-assign[class="discord"] $WS5
+assign [class="GitKraken"] $WS4
+assign [class="discord"] $WS5
 
 for_window [class="bluff"] floating enable
 for_window [class="SofaQt_qmltest"] floating enable
@@ -204,18 +208,10 @@ for_window [class="runSofa2"] floating enable
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
-# NetworkManager is the most popular way to manage wireless networks on Linux,
-# and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-applet
-# compositor
-exec --no-startup-id picom -b
-# flameshot
-exec --no-startup-id flameshot
-# wallpaper handling using feh
+exec --no-startup-id picom -b # compositor
+exec --no-startup-id flameshot # screen capture
 exec --no-startup-id feh --bg-fill --randomize ~/.config/i3/wallpapers
-exec --no-startup-id gnome-terminal
+exec --no-startup-id flatpak run org.wezfurlong.wezterm start --tmux # terminal
 exec --no-startup-id firefox
-exec --no-startup-id scrcpy
 exec --no-startup-id discord
-exec --no-startup-id mattermost
-exec --no-startup-id udiskie
+exec --no-startup-id mattermost-desktop
