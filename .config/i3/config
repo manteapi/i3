@@ -1,14 +1,17 @@
 # set lead key
 set $mod Mod4
 
-# set workspace variables
+# ---------
+# Workspace
+# ---------
+
 set $WS1 1:Starship
 set $WS2 2:Web
 set $WS3 3:Mattermost
 set $WS4 4:Gitkraken
-set $WS5 5:Chat
-set $WS6 6
-set $WS7 7
+set $WS5 5:Whatsapp
+set $WS6 6:Signal
+set $WS7 7:Discord
 set $WS8 8
 set $WS9 9
 set $WS10 10
@@ -186,14 +189,18 @@ bar {
         tray_output none
 }
 
+# ---------
 # windows assignments
+# ---------
 
 # assign window to workspace based on their class
 assign [class="gnome-terminal"] $WS1
 assign [class="firefox"] $WS2
 assign [class="Mattermost"] $WS3
 assign [class="GitKraken"] $WS4
-assign [class="discord"] $WS5
+assign [class="Whatsapp-for-linux"] $WS5
+assign [class="Signal"] $WS6
+assign [class="discord"] $WS7
 
 for_window [class="bluff"] floating enable
 for_window [class="SofaQt_qmltest"] floating enable
@@ -203,7 +210,9 @@ for_window [class="AnatoRun"] floating enable
 for_window [class="runSofa2"] floating enable
 
 
+# ---------
 # autostart
+# ---------
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
@@ -213,5 +222,7 @@ exec --no-startup-id flameshot # screen capture
 exec --no-startup-id feh --bg-fill --randomize ~/.config/i3/wallpapers
 exec --no-startup-id flatpak run org.wezfurlong.wezterm start --tmux # terminal
 exec --no-startup-id firefox
+exec --no-startup-id signal-desktop
+exec --no-startup-id whatsapp-for-linux
 exec --no-startup-id discord
 exec --no-startup-id mattermost-desktop
