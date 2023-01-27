@@ -27,10 +27,10 @@ font pango:monospace Mono 8
 floating_modifier $mod
 
 # autolock after 5 minutes
-exec xautolock -time 1 -locker i3lock --show-failed-attempts -i ~/.config/i3/lockscreen/westworld-wallpaper.png && dunstctl set-paused true
+exec xautolock -time 1 -locker ~/.config/i3lockmore/i3lockmore --show-failed-attempts --image-fill ~/.config/i3/lockscreen/westworld-wallpaper.png
 
 # shortcut to lock the screen
-bindsym Control+mod1+l exec i3lock --show-failed-attempts -i ~/.config/i3/lockscreen/westworld-wallpaper.png && dunstctl set-paused true
+bindsym Control+mod1+l exec ~/.config/i3lockmore/i3lockmore --show-failed-attempts --image-fill ~/.config/i3/lockscreen/westworld-wallpaper.png && dunstctl set-paused true
 
 set $refresh_i3status killall -SIGUSR1 i3status
 

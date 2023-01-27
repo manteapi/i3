@@ -1,0 +1,3 @@
+[submodule ".config/i3lockmore"]
+	path = .config/i3lockmore
+	url = https://github.com/SammysHP/i3lockmore.git
