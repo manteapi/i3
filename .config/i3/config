@@ -21,7 +21,7 @@ set $WBlank2 6
 set $WBlank3 7
 
 # running custom script for monitor management
-# bindsym Control+mod1+j exec --no-startup-id sh ~/.config/i3/scripts/open_laptop_lid.sh
+bindsym Control+mod1+j exec --no-startup-id sh ~/.config/i3/scripts/open_laptop_lid.sh
 bindsym Control+mod1+k exec --no-startup-id sh ~/.config/i3/scripts/close_laptop_lid.sh
 
 # set font
@@ -49,7 +49,8 @@ bindsym $mod+Shift+m exec dunstctl set-paused toggle && status=$(exec dunstctl i
 
 # start a terminal
 bindsym $mod+Return exec flatpak run org.wezfurlong.wezterm
-bindsym $mod+Shift+Return exec flatpak run org.wezfurlong.wezterm start -- tmux
+bindsym $mod+Shift+Return exec flatpak run org.wezfurlong.wezterm start -- tmux new-session -A -s lucy
+
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -224,7 +225,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id picom -b # compositor
 exec --no-startup-id flameshot # screen capture
 exec --no-startup-id feh --bg-fill --randomize ~/.config/i3/wallpapers
-exec --no-startup-id flatpak run org.wezfurlong.wezterm start --tmux # terminal
+exec --no-startup-id flatpak run org.wezfurlong.wezterm start -- tmux new-session -A -s lucy
 exec --no-startup-id firefox
 exec --no-startup-id signal-desktop
 exec --no-startup-id whatsapp-for-linux
